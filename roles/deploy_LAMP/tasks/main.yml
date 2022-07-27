@@ -1,0 +1,18 @@
+---
+# tasks file for install_LAMP_server
+- name: Install tasksel
+  apt:
+    name: tasksel
+    state: present
+
+- name: Install LAMP-server
+  shell: tasksel install lamp-server
+
+- name: Generate Apache 000-default.j2
+  template: src=/root/ansible_project/roles/deploy_LAMP/files/000-default.j2 dest=/etc/apache2/sites-available/000-default.conf mode=0555
+
+- name: Generate apache2.j2
+  template: src=/root/ansible_project/roles/deploy_LAMP/files/apache2.j2 dest=/etc/apache2/apache2.conf mode=0555
+
+  notify:
+    - Restart Apache2

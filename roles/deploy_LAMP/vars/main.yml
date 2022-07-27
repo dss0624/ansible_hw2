@@ -1,0 +1,3 @@
+---
+# vars file for install_LAMP_server
+Apache2_path: /var/www/html/php-mysql-crud

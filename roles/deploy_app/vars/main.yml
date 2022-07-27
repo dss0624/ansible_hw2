@@ -1,0 +1,6 @@
+---
+# vars file for install_app
+source_folder: /var/www/php-mysql-crud
+user: root
+password: password123
+db_name: php_mysql_crud

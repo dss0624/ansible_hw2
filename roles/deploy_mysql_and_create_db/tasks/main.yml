@@ -1,0 +1,31 @@
+---
+# tasks file for install_mysql_and_create_db
+
+   - name: Install MYSQL
+     apt:
+        name:
+          - mysql-client
+          - mysql-server
+
+   - name: Install ansible python3 mysql dependency
+     apt:
+        name: python3-mysqldb
+        state: latest
+
+   - name: Enable mysql service on every boot
+     service: name=mysql state=started enabled=yes
+
+   - name: Create MYSQL database
+     mysql_db:
+        name: php_mysql_crud
+        login_user: root
+        login_password: password123
+        state: present
+
+#   - name: Create MYSQL user
+#     mysql_user:
+#        name: testtest
+#        password: password123
+#        priv: '*.*:ALL'
+#        state: present
+

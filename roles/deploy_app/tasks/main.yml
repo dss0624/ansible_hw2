@@ -1,0 +1,10 @@
+---
+# tasks file for install_app
+
+    - name: Download git repo php-mysql-crud
+      git:
+       repo: https://github.com/FaztWeb/php-mysql-crud.git
+       dest: /var/www/html/php-mysql-crud
+
+    - name: generate db.j2
+      template: src=/root/ansible_project/roles/deploy_app/files/db.j2 dest=/var/www/html/php-mysql-crud/db.php mode=0555

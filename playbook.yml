@@ -1,0 +1,17 @@
+---
+- name: Install LAMP and MYSQL
+  hosts: LAMP_server
+  become: yes
+
+
+  roles:
+    - deploy_LAMP
+    - deploy_app
+
+- name: Install MYSQL and create DB
+  hosts: MYSQL_server
+  become: yes
+
+  roles:
+    - deploy_mysql_and_create_db
+
